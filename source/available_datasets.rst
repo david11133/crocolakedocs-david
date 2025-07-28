@@ -89,7 +89,7 @@ Spray Gliders data report depth and not pressure. For consistency with the :ref:
 Saildrones
 -------------
 
-CrocoLake contains data from `Saildrone missions <https://www.pmel.noaa.gov/ocs/saildrone/data-access>` _ conducted as part of NOAA’s Tropical Pacific Observing System (TPOS) program. The Saildrones data are quality-controlled by NOAA PMEL, with light quality control applied to remove outliers using standard deviation thresholds, manual inspection, and gross error checks since 2021.
+CrocoLake contains data from `Saildrone missions <https://www.pmel.noaa.gov/ocs/saildrone/data-access>`_ conducted as part of NOAA’s Tropical Pacific Observing System (TPOS) program. The Saildrones data are quality-controlled by NOAA PMEL, with light quality control applied to remove outliers using standard deviation thresholds, manual inspection, and gross error checks since 2021.
 
 The mapping between Saildrone variable names and CrocoLake’s is the following::
 
