@@ -143,7 +143,7 @@ Saildrone measurements do not include depth or pressure as variables. Instead, s
 Oleander
 -------------
 
-CrocoLake contains data from the `Oleander project <https://data.bios.edu/erddap/files/oleanderXbtNcFiles/>`_, which collects oceanographic observations along the shipping route between New Jersey and Bermuda. The data contains yearly archives of temperature profile data from 1977 to present.
+CrocoLake contains data from the `Oleander project <http://erddap.oleander.bios.edu:8080/erddap/files/oleanderXbtNcFiles/>`_, which collects oceanographic observations along the shipping route between New Jersey and Bermuda. The data contains yearly archives of temperature profile data from 1977 to present.
 
 The mapping between Oleander variable names and CrocoLake's is the following::
 
