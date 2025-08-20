@@ -157,4 +157,4 @@ The mapping between Oleander variable names and CrocoLake's is the following::
 	'temp' : 'TEMP',
     }
 
-The Oleander dataset provides depth measurements directly, which are retained in CrocoLake as the DEPTH variable. For consistency with other datasets, these depth values are also converted to pressure (and stored in PRES) using the Python implementation of the Gibbs SeaWater (GSW) Oceanographic Toolbox of TEOS-10 <https://teos-10.github.io/GSW-Python/intro.html>_ (specifically, its gsw.conversions.p_from_z() method).
+The Oleander dataset provides depth measurements directly, which are retained in CrocoLake as the DEPTH variable. For consistency with other datasets, these depth values are also converted to pressure (and stored in PRES) using the `Python implementation of the Gibbs SeaWater (GSW) Oceanographic Toolbox of TEOS-10 <https://teos-10.github.io/GSW-Python/intro.html>`_ (specifically, its ``gsw.conversions.p_from_z()`` method).
