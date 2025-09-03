@@ -89,9 +89,9 @@ Spray Gliders data report depth and not pressure. For consistency with the :ref:
 Saildrones
 -------------
 
-CrocoLake contains data from `Saildrone missions <https://www.pmel.noaa.gov/ocs/saildrone/data-access>`_ conducted as part of NOAA’s Tropical Pacific Observing System (TPOS) program. The Saildrones data are quality-controlled by NOAA PMEL, with light quality control applied to remove outliers using standard deviation thresholds, manual inspection, and gross error checks since 2021.
+CrocoLake contains data from `Saildrone missions <https://www.pmel.noaa.gov/ocs/saildrone/data-access>`_ conducted as part of NOAA's Tropical Pacific Observing System (TPOS) program. The Saildrones data are quality-controlled by NOAA PMEL, with light quality control applied to remove outliers using standard deviation thresholds, manual inspection, and gross error checks since 2021.
 
-The mapping between Saildrone variable names and CrocoLake’s is the following::
+The mapping between Saildrone variable names and CrocoLake's is the following::
 
     params["Saildrones2CROCOLAKE"] = {
         'wmo_id': 'PLATFORM_NUMBER',
@@ -139,7 +139,7 @@ The mapping between Saildrone variable names and CrocoLake’s is the following:
         'BKSCT_RED_STDDEV': 'BBP700_ERROR',
     }
 
-Saildrone measurements do not include depth or pressure as variables. Instead, sensor installation depths are extracted from the metadata attributes (e.g., ``installed_height`` in variable attributes or the dataset's ``summary`` attribute). These depths are hardcoded in CrocoLake's converter logic due to inconsistencies in metadata availability. The assigned depths are then converted to pressure (stored in ``PRES``) using the `Python implementation of the Gibbs SeaWater (GSW) Oceanographic Toolbox of TEOS-10 <https://teos-10.github.io/GSW-Python/intro.html>`_ (specifically, its ``gsw.conversions.p_from_z()`` method).
+Saildrone measurements do not include depth or pressure as variables. Instead, sensor installation depths are extracted from the metadata attributes (e.g., ``installed_height`` in variable attributes or the ``summary`` attribute in the dataset). To address inconsistencies in metadata availability, depths were compiled from the ``summary`` attribute when available, as it is considered more reliable, and supplemented with ``installed_height`` values when necessary. A detailed table containing depths from both sources is available in the `pull request discussion <https://github.com/boom-lab/crocolaketools-public/pull/6/#issuecomment-3018702245>`_. These depths are then converted to pressure (stored in ``PRES``) using the `Python implementation of the Gibbs SeaWater (GSW) Oceanographic Toolbox of TEOS-10 <https://teos-10.github.io/GSW-Python/intro.html>`_ (specifically, its ``gsw.conversions.p_from_z()`` method).
 
 Oleander
 -------------
@@ -149,13 +149,13 @@ CrocoLake contains data from the `Oleander project <http://erddap.oleander.bios.
 The mapping between Oleander variable names and CrocoLake's is the following::
 
     params["Oleander2CROCOLAKE"] = {
-	'trajectory' : 'PLATFORM_NUMBER',
-	'profile' : 'CYCLE_NUMBER',
-	'latitude' : 'LATITUDE',
-	'longitude' : 'LONGITUDE',
-	'time' : 'JULD',
-	'depth' : 'DEPTH',
-	'temp' : 'TEMP',
+        'trajectory' : 'PLATFORM_NUMBER',
+        'profile' : 'CYCLE_NUMBER',
+        'latitude' : 'LATITUDE',
+        'longitude' : 'LONGITUDE',
+        'time' : 'JULD',
+        'depth' : 'DEPTH',
+        'temp' : 'TEMP',
     }
 
 The Oleander dataset provides depth measurements directly, which are retained in CrocoLake as the ``DEPTH`` variable. For consistency with other datasets, these depth values are also converted to pressure (and stored in ``PRES``) using the `Python implementation of the Gibbs SeaWater (GSW) Oceanographic Toolbox of TEOS-10 <https://teos-10.github.io/GSW-Python/intro.html>`_ (specifically, its ``gsw.conversions.p_from_z()`` method).
